@@ -1,0 +1,9 @@
+
+services:
+  app:
+    build: .
+    container_name: JM-backed-end-interview
+    ports:
+      - "3000:3000"
+    volumes:
+      - .:/src/app
