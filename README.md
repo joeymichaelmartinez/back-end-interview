@@ -1,40 +1,33 @@
-# Back-end Developer Interview
+# Nutrien Take Home Assignment Information
 
-## Expectations:
+## Overview
+This Solution to Nutrien's backend take home assignment was created by Joey Martinez. This Readme will explain how the application works as well as how to build and run the application using Docker.
 
-1. Using Python (preferred) or Javascript with any framework(s) you enjoy
-2. Feel free to be creative, but the result NEED NOT BE COMPLEX or excessively time-consuming
-3. We will review your work together during the in-person interview
-4. Send a link to the source, a repository URL or a zip file of your project the day before your interview day
+## Technology used
 
-## Exercise:
+This application is written in TypeScript, and uses Express.js to handle the majority of the API service. Chart.js was used to generate the graph used to describe the data in the generated histogram. CSV-Parser and strip bom stream were used to properly parse the CSV data so that it could be to generate the histogram programmatically.
 
-Start with the included `Projection2021.csv` file. Ignore `FeedGrains.csv` for now.
+## Setup
+### Necessary Installed Items
+- Node.js
+- TypeScript
 
-Create an API service that provides a GET histogram route for each column in the table. For example, the following URLs should be successfully resolved by the service:
+## Instructions on How to Run the Application
 
-* http://localhost/Commodity/histogram
-* http://localhost/CommodityType/histogram
-* Etc.
+### Run using Docker
 
-A GET request on any of these URLs should return HTML with the count of how many times each unique value appears in that column of the data. For example in the Commodity column, “Rice” appears 216 times, “Corn” 240, etc.
+    docker-compose build 
+    docker-compose up
 
-This service should be runnable using one of:
-* (preferred) In Docker using `docker-compose up` or `docker run` command you provide
-* A simple readme describing how to start the service
-* http://repl.it or similar
+### Run Locally
+	npm install
+    npx tsx src/app.ts
+    
+## How to Access the Service
 
-Be prepared to talk about one aspect of this exercise you found interesting, or feel free to add (or not) any optimization or feature you find interesting and would like to talk about. For example:
-* Visualizations
-* Testing strategies
-* Persisting data
-* Data modeling / analytics
-* API structure / versioning
-* ???
+Application runs at http://localhost:3000/. The root of the application will explain how to generate the histograms. A histogram can be generated from any of the columns in the projections2021.csv file.
+Example URL:
 
-## Data source notes
-1. `Projection2021.csv` - sourced from the "USDA Agricultural Baseline Database" for the current year projections https://www.ers.usda.gov/media/u55iwexw/projection2021.zip
-2. `FeedGrains.csv` - sourced from the “USDA Feed Grains: Yearbook Tables” available at https://www.ers.usda.gov/data-products/feed-grains-database/feed-grains-yearbook-tables/
-
+    http://localhost:3000/Commodity/histogram
 
 
